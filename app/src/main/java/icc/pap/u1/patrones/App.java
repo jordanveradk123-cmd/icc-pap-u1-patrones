@@ -3,7 +3,12 @@
  */
 package icc.pap.u1.patrones;
 
-import icc.creacionales.BuilderDemo;
+import java.util.List;
+
+import icc.creacionales.BuilderMethod.BuilderDemo;
+import icc.creacionales.FactoryMethod.Importador;
+import icc.creacionales.FactoryMethod.ImportadorPuntoComa;
+import icc.creacionales.FactoryMethod.ImportadorTabulacion;
 
 public class App {
     public String getGreeting() {
@@ -11,7 +16,15 @@ public class App {
     }
 
     public static void main(String[] args) {
-        runBuilder();
+        //runBuilder();
+        runFactoryMethod();
+    }
+
+    private static void runFactoryMethod() {
+        Importador impPC = new ImportadorPuntoComa();
+        System.out.println(impPC.importacion(List.of("SO1;22.5;C","SO2;18;C")));
+        Importador impTab = new ImportadorTabulacion();
+        System.out.println(impTab.importacion(List.of("SO1\t22.5\tC","SO2\t18\tC")));
     }
 
     private static void runBuilder() {

@@ -1,7 +1,7 @@
-package icc.creacionales;
+package icc.creacionales.BuilderMethod;
 
 public class BuilderDemo {
-    //  La clase que queremos construir
+    // La clase que queremos construir
     public static class Computadora {
         private String procesador;
         private String ram;
@@ -67,7 +67,8 @@ public class BuilderDemo {
 
         @Override
         public String toString() {
-            return "Computadora [procesador=" + procesador + ", ram=" + ram + ", disco=" + disco + ", grafica=" + grafica + ", wifi=" + tieneWifi + ", bluetooth=" + tieneBluetooth + "]";
+            return "Computadora [procesador=" + procesador + ", ram=" + ram + ", disco=" + disco + ", grafica="
+                    + grafica + ", wifi=" + tieneWifi + ", bluetooth=" + tieneBluetooth + "]";
         }
     }
 
