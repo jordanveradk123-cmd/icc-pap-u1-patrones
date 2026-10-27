@@ -5,10 +5,15 @@ package icc.pap.u1.patrones;
 
 import java.util.List;
 
-import icc.creacionales.BuilderMethod.BuilderDemo;
+import icc.creacionales.BuilderMethod.Pizza;
+import icc.creacionales.BuilderMethod.PizzaBuilder;
 import icc.creacionales.FactoryMethod.Importador;
 import icc.creacionales.FactoryMethod.ImportadorPuntoComa;
 import icc.creacionales.FactoryMethod.ImportadorTabulacion;
+import icc.creacionales.Practica.configuracion.ConfiguracionSistema;
+import icc.creacionales.Practica.factory.PedidoFactory;
+import icc.creacionales.Practica.pedidos.Pedido;
+import icc.creacionales.prototype.PlantillaEmail;
 
 public class App {
     public String getGreeting() {
@@ -16,19 +21,57 @@ public class App {
     }
 
     public static void main(String[] args) {
-        //runBuilder();
-        runFactoryMethod();
+        // runBuilder();
+        // runFactoryMethod();
+        // runPrototype();
+        runPractica();
+
+    }
+
+    private static void runPractica() {
+        // Prueba Singleton: debe ser la misma instancia
+        ConfiguracionSistema c1 = ConfiguracionSistema.getInstancia();
+        ConfiguracionSistema c2 = ConfiguracionSistema.getInstancia();
+        System.out.println("\nConfiguracion del sistema impuesto :" + c1.getPorcentajeImpuesto() + "%\n");
+
+        // Prueba Factory
+        Pedido p1 = PedidoFactory.crearPedido("presencial", "P001", "Ana Torres", 100);
+        Pedido p2 = PedidoFactory.crearPedido("linea", "P002", "Juan Perez", 200);
+       
+        System.out.println("\n----Pedido Presencial-----"+"Codigo:"+p1.getCodigo());
+        p1.procesar();
+        System.out.println("\n----Pedido En Linea-----"+"Codigo:"+p2.getCodigo());
+        p2.procesar();
+        System.out.println("\nConfiguracion Compartida: " + (c1 == c2)); // true
+    }
+
+    private static void runPrototype() {
+        PlantillaEmail plantilla = new PlantillaEmail("Asunto de prueba", "Mensaje de prueba");
+        PlantillaEmail copia = plantilla.clone();
+        copia.cambiarAsunto("Solicitud");
+        System.out.println("Plantilla original: " + plantilla);
+        System.out.println("Copia de la plantilla: " + copia);
     }
 
     private static void runFactoryMethod() {
         Importador impPC = new ImportadorPuntoComa();
-        System.out.println(impPC.importacion(List.of("SO1;22.5;C","SO2;18;C")));
+        System.out.println(impPC.importacion(List.of("SO1;22.5;C", "SO2;18;C")));
         Importador impTab = new ImportadorTabulacion();
-        System.out.println(impTab.importacion(List.of("SO1\t22.5\tC","SO2\t18\tC")));
+        System.out.println(impTab.importacion(List.of("SO1\t22.5\tC", "SO2\t18\tC")));
     }
 
     private static void runBuilder() {
-        BuilderDemo.run();
+        // BuilderDemo.run();
+        Pizza pizza = new PizzaBuilder()
+                .SetSize("grande")
+                .AddIngredient("queso")
+                .AddIngredient("jamon")
+                .AddIngredient("champiñones")
+                .build();
+        System.out.println(pizza.Descripcion());
+
+        Pizza pizza2 = new PizzaBuilder().build();
+        System.out.println(pizza2.Descripcion());
 
     }
 }
