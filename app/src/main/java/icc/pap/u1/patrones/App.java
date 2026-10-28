@@ -24,7 +24,7 @@ public class App {
         // runBuilder();
         // runFactoryMethod();
         // runPrototype();
-        runPractica();
+        //runPractica();
 
     }
 
