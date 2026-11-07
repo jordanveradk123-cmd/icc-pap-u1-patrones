@@ -10,8 +10,8 @@ public final class DecoradorRegistro {
      
     @Override
     public void cargar() {
-        System.out.println("iniciar carga con...");
-        cargador.cargarCelular();
-        System.out.println("carga finalizada");
+        System.out.println("Iniciando carga de datos...");
+        cargador.cargar();
+        System.out.println("Carga de datos finalizada.");
     }
 }
