@@ -11,8 +11,8 @@ public class ProxyCanalEnvio implements CanalEnvio {
 
     @Override
     public void enviar(String mensaje, String destinatario) {
-        if (!autorizado) {
-            System.out.println(" El canal no está autorizado no se puede enviar el mensaje.");
+        if (autorizado==false) {
+            System.out.println("No autorizado para enviar el mensaje.");
             return;
         }
         canal.enviar(mensaje, destinatario);

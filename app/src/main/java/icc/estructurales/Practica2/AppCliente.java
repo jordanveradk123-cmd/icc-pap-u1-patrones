@@ -2,40 +2,20 @@ package icc.estructurales.Practica2;
 
 public class AppCliente {
     public static void main(String[] args) {
-        Notificacion not1= new NotificacionAcademica(new CanalCorreo());
-        Notificacion not2= new NotificacionAcademica(new CanalPush());
-        Notificacion not3= new NotificacionAcademica(new CanalSms());
+        ProxyCanalEnvio proxy = new ProxyCanalEnvio(new CanalCorreo(), false);
+        Notificacion notificacionAcademica = new NotificacionAcademica(proxy);
+        notificacionAcademica.notificar("Examen final el 20 de junio", "estudiante@universidad.edu");
 
-        Notificacion notSeg1= new NotificacionSeguridad(new CanalCorreo());
-        Notificacion notSeg2= new NotificacionSeguridad(new CanalPush());
-        Notificacion notSeg3= new NotificacionSeguridad(new CanalSms());
+        System.out.println("--------------------------------------------------");
 
-        Notificacion notAdm1= new NotificacionAdministrativa(new CanalCorreo());
-        Notificacion notAdm2= new NotificacionAdministrativa(new CanalPush());
-        Notificacion notAdm3= new NotificacionAdministrativa(new CanalSms());
+        ProxyCanalEnvio proxy2 = new ProxyCanalEnvio(new CanalPush(), true);
+        Notificacion notificacionSeguridad = new NotificacionSeguridad(proxy2);
+        notificacionSeguridad.notificar("Se detectó un acceso no autorizado", "admin@universidad.edu");
+        System.out.println("--------------------------------------------------");
 
-        String mensaje= "Solicitud aprovada";
-        String mensajeSeg= "Alerta de correos Maliciosos";
-        String mensajeAdm= "Pago de colegiatura";
+        ProxyCanalEnvio proxy3 = new ProxyCanalEnvio(new CanalSms(), true);
+        Notificacion notificacionAdministrativa = new NotificacionAdministrativa(proxy3);
+        notificacionAdministrativa.notificar("Se ha actualizado el horario de clases", "estudiante  @universidad.edu");
 
-        not1.notificar(mensaje, "destinatario1");
-        not2.notificar(mensaje, "destinatario2");
-        not3.notificar(mensaje, "destinatario3");   
-
-        notSeg1.notificar(mensajeSeg, "destinatario4");
-        notSeg2.notificar(mensajeSeg, "destinatario5");
-        notSeg3.notificar(mensajeSeg, "destinatario6"); 
-
-        notAdm1.notificar(mensajeAdm, "destinatario7");
-        notAdm2.notificar(mensajeAdm, "destinatario8");
-        notAdm3.notificar(mensajeAdm, "destinatario9");
-
-    
-
-
-
-
-        
     }
-
 }
