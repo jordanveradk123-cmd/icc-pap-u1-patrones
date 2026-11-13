@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 public class Producto {
 
     public final List<Consumer<CambioProducto>> observadores;
-
     private String codigo;
     private double precio;
     private String nombre;

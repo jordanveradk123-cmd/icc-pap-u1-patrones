@@ -8,8 +8,6 @@ public class AppObserver {
         p.suscribir(cp -> System.out.println("Corre : $" + cp.nuevo()));
         p.suscribir(cp -> System.out.println("Registro : $" + cp.nuevo()));
 
-        String codigoAnt = p.getCodigo();
-
         /** 
         String codOld = p.getCodigo();
         p.suscribir(producto -> {
