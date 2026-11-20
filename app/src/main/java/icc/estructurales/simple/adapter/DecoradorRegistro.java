@@ -1,4 +1,4 @@
-package icc.estructurales.simple.adapter;
+/*package icc.estructurales.simple.adapter;
 
 public final class DecoradorRegistro {
 
@@ -15,3 +15,4 @@ public final class DecoradorRegistro {
         System.out.println("Carga de datos finalizada.");
     }
 }
+*/

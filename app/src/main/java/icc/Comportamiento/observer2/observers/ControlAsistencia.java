@@ -8,24 +8,23 @@ public class ControlAsistencia implements Consumer<CambioEstudiante> {
 
     @Override
     public void accept(CambioEstudiante cambio) {
-        if (!cambio.atributo().equals("asistencia")) {
+        if (!cambio.atributo().equals("asistencias")) {
             return;
 
         }
 
-        int anterior = (int) cambio.old();
-        int nuevo = (int) cambio.nuevo();
+        int nuevo = Integer.parseInt(String.valueOf(cambio.nuevo()));
 
-        if (anterior >= 0 && nuevo <= 2) {
+        if (nuevo <= 2 && nuevo >= 0) {
             System.out.println("[ACADEMICO] Asistencia Normal" + cambio.est());
         }
 
-        if (anterior >= 3 && nuevo <= 5) {
+        if (nuevo >= 3 && nuevo <= 5) {
             System.out.println("[ACADEMICO] Advertencia" + cambio.est());
 
         }
 
-        if (anterior >= 6 && nuevo < 6) {
+        if (nuevo >= 6) {
             System.out.println("[ACADEMICO] Critica" + cambio.est());
         }
 

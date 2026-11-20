@@ -26,6 +26,8 @@ public class Estudiante {
     }
 
     public void setCodigo(String codigo) {
+        if (this.codigo == codigo)
+            return;
         String codigoAnt = this.codigo;
         this.codigo = codigo;
         CambioEstudiante cambio = new CambioEstudiante(this, "codigo", codigoAnt, codigo);
@@ -37,6 +39,8 @@ public class Estudiante {
     }
 
     public void setNombre(String nombre) {
+        if (this.nombre == nombre)
+            return;
         String nombreAnt = this.nombre;
         this.nombre = nombre;
         CambioEstudiante cambio = new CambioEstudiante(this, "nombre", nombreAnt, nombre);
@@ -48,6 +52,8 @@ public class Estudiante {
     }
 
     public void setPromedio(double promedio) {
+        if (this.promedio == promedio)
+            return;
         double promedioAnt = this.promedio;
         this.promedio = promedio;
         CambioEstudiante cambio = new CambioEstudiante(this, "promedio", promedioAnt,
@@ -60,6 +66,8 @@ public class Estudiante {
     }
 
     public void setAsistencias(int asistencias) {
+        if (this.asistencias == asistencias)
+            return;
         String asistenciasAnt = Integer.toString(this.asistencias);
         this.asistencias = asistencias;
         CambioEstudiante cambio = new CambioEstudiante(this, "asistencias", asistenciasAnt,
@@ -72,6 +80,8 @@ public class Estudiante {
     }
 
     public void setMatricula(Matricula matricula) {
+        if (this.matricula == matricula)
+            return;
         Matricula matriculaAnt = this.matricula;
         this.matricula = matricula;
         CambioEstudiante cambio = new CambioEstudiante(this, "matricula", matriculaAnt, matricula);
@@ -90,7 +100,7 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "\nEstudiante [" + codigo +"-"+ nombre + "-promedio=" + promedio + "-Asistencia="
+        return "\nEstudiante [" + codigo + "-" + nombre + "-promedio=" + promedio + "-Asistencia="
                 + asistencias + "-" + matricula + "]\n";
     }
 

@@ -1,4 +1,4 @@
-package icc.estructurales.simple.adapter;
+/*package icc.estructurales.simple.adapter;
 
 public final class DecoradorSeguridad {
 
@@ -26,4 +26,4 @@ public final class DecoradorSeguridad {
     }
 }
 
-}
+}*/

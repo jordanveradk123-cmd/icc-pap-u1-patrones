@@ -21,7 +21,7 @@ public class SeguimientoAcademico implements Consumer<CambioEstudiante> {
             System.out.println("[ACADEMICO] Bajo Rendimiento" + cambio.est());
         }
 
-        if (anterior < 7.0 && nuevo >=7.0) {
+        if (anterior < 7.0 && nuevo >= 7.0) {
             System.out.println("[ACADEMICO] Recuperacion Academica" + cambio.est());
 
         }
