@@ -7,8 +7,8 @@ public abstract class DecoradorCargador implements Cargador {
     public DecoradorCargador(Cargador cargador) {
         this.cargador = cargador;
     }
-     
-    @Override 
+
+    @Override
     public void cargarCelular() {
         cargador.cargarCelular();
     }

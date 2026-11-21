@@ -1,29 +1,23 @@
-/*package icc.estructurales.simple.adapter;
+package icc.estructurales.simple.adapter;
 
-public final class DecoradorSeguridad {
+public final class DecoradorSeguridad extends DecoradorCargador {
 
-    private final boolean permitido;
-
-    private final Cargador cargador;
+    private boolean permitido;
 
     public DecoradorSeguridad(Cargador cargador, boolean permitido) {
-        this.cargador = cargador;
+        super(cargador);
         this.permitido = permitido;
     }
 
-    if(permitido){
-
-    public void cargar() {
-        System.out.println("iniciar carga con...");
-        cargador.cargarCelular();
-        System.out.println("carga finalizada");
-    
-
-    }else{
-
+    @Override
     public void cargarCelular() {
-        System.out.println("Carga no permitida");
-    }
-}
+        System.out.println("Verificando seguridad...");
 
-}*/
+        if (permitido) {
+            super.cargarCelular();
+        } else {
+            System.out.println("Carga bloqueada.");
+        }
+    }
+
+}

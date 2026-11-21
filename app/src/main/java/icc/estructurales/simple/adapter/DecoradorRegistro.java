@@ -1,18 +1,16 @@
-/*package icc.estructurales.simple.adapter;
+package icc.estructurales.simple.adapter;
 
-public final class DecoradorRegistro {
-
-    private final Cargador cargador;
+public class DecoradorRegistro extends DecoradorCargador {
 
     public DecoradorRegistro(Cargador cargador) {
-        this.cargador = cargador;
+        super(cargador);
     }
-     
+
     @Override
-    public void cargar() {
-        System.out.println("Iniciando carga de datos...");
-        cargador.cargar();
-        System.out.println("Carga de datos finalizada.");
+    public void cargarCelular() {
+        System.out.println(" Inicio de carga...");
+        super.cargarCelular();
+        System.out.println(" Fin de carga, registrado.");
     }
+
 }
-*/
